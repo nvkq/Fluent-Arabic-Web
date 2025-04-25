@@ -2,6 +2,10 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+<p align="center">
+  <img src="logo.png" alt="شعار VenSHORT" width="150">
+</p>
+
 **اجعل تصفح الويب باللغة العربية تجربة أكثر سلاسة وطبيعية!**
 
 Fluent Arabic Web هي إضافة للمتصفح (Chrome, Edge، وغيرها من المتصفحات المبنية على Chromium) مصممة لتحسين تجربة قراءة وكتابة اللغة العربية على أي موقع ويب بشكل تلقائي. تكتشف الإضافة وجود محتوى عربي (حتى المحتوى المترجم بواسطة المتصفح) وتقوم بتطبيق التنسيقات اللازمة لجعل النص يتدفق من اليمين لليسار (RTL) وتستخدم خطًا عربيًا محسنًا (Noto Naskh Arabic) لزيادة الوضوح والراحة البصرية.
