@@ -47,6 +47,9 @@ Fluent Arabic Web هي إضافة للمتصفح (Chrome, Edge، وغيرها م
 
 **من متجر Chrome Web Store:** *✨ (قريبًا) ✨*
 *   سيتم توفير رابط هنا بمجرد نشر الإضافة على المتجر الرسمي.
+<p align="center">
+  <img src="screenshots/chrome.PNG" alt="chrome" width="1000">
+</p>
 
 ## ⚙️ الاستخدام
 <div align="center">
