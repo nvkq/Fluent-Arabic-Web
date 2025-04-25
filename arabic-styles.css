@@ -1,0 +1,88 @@
+/* --- تعريف الخطوط المحلية --- */
+@font-face {
+    font-family: 'Noto Naskh Arabic Local';
+    /* المسار لا يزال صحيحًا */
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/NotoNaskhArabic-Regular.woff2') format('woff2');
+    font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+    font-family: 'Noto Naskh Arabic Local';
+    src: url('chrome-extension://__MSG_@@extension_id__/fonts/NotoNaskhArabic-Bold.woff2') format('woff2');
+    font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* --- الأنماط الأساسية التي تطبق فقط عند وجود الفئة .arabic-enhancer-active على <html> --- */
+
+/* استهداف html بدلاً من body */
+html.arabic-enhancer-active body, /* تأكد من تطبيق النمط على الجسم أيضًا */
+html.arabic-enhancer-active .message,
+html.arabic-enhancer-active [class*="message"],
+html.arabic-enhancer-active [role="log"] > *,
+html.arabic-enhancer-active textarea,
+html.arabic-enhancer-active input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]):not([type="image"]), /* استهداف حقول النص */
+html.arabic-enhancer-active button,
+html.arabic-enhancer-active select,
+html.arabic-enhancer-active summary, /* لعناصر <details> */
+html.arabic-enhancer-active [role="button"], /* العناصر التي تعمل كأزرار */
+html.arabic-enhancer-active [role="textbox"] { /* العناصر التي تعمل كمربعات نص */
+    direction: rtl !important;
+    font-family: 'Noto Naskh Arabic Local', 'Segoe UI', 'Noto Sans Arabic', sans-serif !important; /* استخدام important هنا لتجاوز أنماط قوية */
+    text-align: right !important;
+}
+
+/* استهداف شامل للخط للفقرات والنصوص العامة داخل السياق العربي */
+html.arabic-enhancer-active p,
+html.arabic-enhancer-active div,
+html.arabic-enhancer-active span,
+html.arabic-enhancer-active li,
+html.arabic-enhancer-active td,
+html.arabic-enhancer-active th,
+html.arabic-enhancer-active label {
+    /* لا تفرض الاتجاه هنا للسماح بـ LTR داخل RTL إذا لزم الأمر */
+    /* فرض الخط فقط إذا لم يتم تحديده بالفعل بواسطة قاعدة أكثر تحديدًا أعلاه */
+    font-family: 'Noto Naskh Arabic Local', 'Segoe UI', 'Noto Sans Arabic', sans-serif;
+}
+
+
+/* تحسينات التباعد (تطبق فقط في السياق العربي) */
+html.arabic-enhancer-active *:not(code):not(pre):not(kbd):not(samp):not(input):not(textarea):not(button):not(select):not(option):not(svg *):not([class*="icon"]):not(i) {
+    /* تطبيق تباعد أخف بشكل افتراضي */
+    letter-spacing: 0.01em; /* إزالة !important للسماح بالتجاوز */
+    word-spacing: 0.05em;  /* إزالة !important للسماح بالتجاوز */
+    line-height: 1.65;      /* زيادة طفيفة، بدون !important */
+}
+/* تعديلات محددة للفقرات لتحسين القراءة */
+html.arabic-enhancer-active p {
+    line-height: 1.75 !important; /* يمكن زيادة ارتفاع السطر للفقرات الطويلة */
+}
+
+
+/* تعديلات واجهة المستخدم للعناصر التي تحتاج للقلب (أمثلة عامة جدًا) */
+/* قد تكون هذه القواعد مفرطة في بعض المواقع، استخدمها بحذر */
+html.arabic-enhancer-active [style*="float: left"] { float: right !important; }
+html.arabic-enhancer-active [style*="float: right"] { float: left !important; }
+html.arabic-enhancer-active [style*="margin-left"] { /* قد تحتاج إلى منطق أكثر تعقيدًا هنا */ }
+html.arabic-enhancer-active [style*="padding-left"] { /* قد تحتاج إلى منطق أكثر تعقيدًا هنا */ }
+
+/* الحفاظ على LTR لعناصر الكود والـ Pre */
+html.arabic-enhancer-active pre,
+html.arabic-enhancer-active code,
+html.arabic-enhancer-active kbd,
+html.arabic-enhancer-active samp,
+html.arabic-enhancer-active var, /* متغيرات الكود */
+html.arabic-enhancer-active tt { /* نص Teletype قديم */
+    direction: ltr !important;
+    text-align: left !important;
+    font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+    line-height: normal !important;
+    unicode-bidi: embed !important;
+    /* إعادة تعيين الخط إذا تم تطبيقه بشكل عام أعلاه */
+    font-family: 'JetBrains Mono', Consolas, 'Courier New', monospace !important;
+}
+
+/* إصلاحات محتملة لتراكب العناصر (أمثلة) */
+html.arabic-enhancer-active * + * { /* إضافة هامش علوي بسيط بين العناصر المتجاورة كقاعدة عامة */
+   /* margin-top: 0.1em; */ /* كن حذرًا جدًا مع هذه القاعدة الشاملة */
+}
